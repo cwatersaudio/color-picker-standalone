@@ -56,10 +56,12 @@ function App() {
     />;
   });
 
+  const bkgGradient = colors.swatches.reverse().toString()
+
   return (
 
     <div className="app--canvas"
-      style={{ background: `linear-gradient(0.25turn,${colors.swatches.reverse().toString()})` }}
+      style={{ background: `linear-gradient(0.25turn,${bkgGradient})` }}
     >
       <div className="app--container">
         <Navbar
