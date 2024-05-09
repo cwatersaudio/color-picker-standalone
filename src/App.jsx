@@ -3,6 +3,8 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import ColorSwatch from "./components/ColorSwatch";
 
+const ColorPickerContext = React.createContext();
+
 function App() {
   const [colors, setColors] = React.useState({
     seedColor: "#31DDBB",
@@ -64,10 +66,12 @@ function App() {
       style={{ background: `linear-gradient(0.25turn,${bkgGradient})` }}
     >
       <div className="app--container">
-        <Navbar
-          colors={colors}
-          handleChange={handleChange}
-        />
+        <ColorPickerContext.Provider value={{ colors, handleChange }}>
+          <Navbar
+          // colors={colors}
+          // handleChange={handleChange}
+          />
+        </ColorPickerContext.Provider>
         <div className='swatch--container'>
           {colorSwatches}
         </div>
@@ -78,6 +82,8 @@ function App() {
 }
 
 export default App;
+
+export { ColorPickerContext };
 
 
 

@@ -1,6 +1,9 @@
 import Menu from "./Menu";
+import { ColorPickerContext } from "../App";
+import React from "react";
 
 export default function Navbar(props) {
+  const { colors, handleChange } = React.useContext(ColorPickerContext)
 
 
   return (
@@ -10,13 +13,10 @@ export default function Navbar(props) {
           type='color'
           id='colorPicker'
           name='seedColor'
-          value={props.colors.seedColor}
-          onChange={props.handleChange}
+          value={colors.seedColor}
+          onChange={handleChange}
         />
-        <Menu
-          colors={props.colors}
-          handleChange={props.handleChange}
-        />
+        <Menu />
 
 
       </div>

@@ -1,14 +1,16 @@
 import React from "react";
 import MenuItem from "./MenuItem";
+import { ColorPickerContext } from "../App";
 
 export default function Menu(props) {
+    const { colors, handleChange } = React.useContext(ColorPickerContext)
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(!open);
     };
 
     const handleMenuItem = (event) => {
-        props.handleChange(event)
+        handleChange(event)
         setOpen(false);
     };
 
@@ -58,7 +60,7 @@ export default function Menu(props) {
         <div>
             <Dropdown
                 open={open}
-                trigger={<div className="trigger--container" onClick={handleOpen}><button className="menu--trigger">{props.colors.colorMode}</button><img src="./images/select-menu-selector.svg" id="triggerArrow" ></img></div>}
+                trigger={<div className="trigger--container" onClick={handleOpen}><button className="menu--trigger">{colors.colorMode}</button><img src="./images/select-menu-selector.svg" id="triggerArrow" ></img></div>}
                 menu={ColorMenu}
             />
         </div>
