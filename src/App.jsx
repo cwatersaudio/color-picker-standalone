@@ -58,7 +58,7 @@ function App() {
     />;
   });
 
-  const bkgGradient = colors.swatches.reverse().toString()
+  const bkgGradient = colors.swatches.toString()
 
   return (
 
@@ -67,10 +67,7 @@ function App() {
     >
       <div className="app--container">
         <ColorPickerContext.Provider value={{ colors, handleChange }}>
-          <Navbar
-          // colors={colors}
-          // handleChange={handleChange}
-          />
+          <Navbar />
         </ColorPickerContext.Provider>
         <div className='swatch--container'>
           {colorSwatches}
